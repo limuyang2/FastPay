@@ -1,16 +1,24 @@
-# FastPay
-一个集成微信、支付宝、银联支付的小巧库
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
+
+# FastPay
+**（LiveData版本）**一个集成微信、支付宝、银联支付的小巧库，本库采用LiveData相应数据，具有LiveData的所有优点，例如生命周期的感知。  
+本库不提供任何逻辑，主要是提供库的集成，省去配置时间，以简单、轻量为主，不做过度封装
 
 ## 获取 
 
 ## 使用 
+| 微信 | 银联 |
+| ---- | ---- |
+|![](https://github.com/limuyang2/FastPay/blob/master/pic/wxtips.png)|![](https://github.com/limuyang2/FastPay/blob/master/pic/uniontips.png)|
+* 根据以上官方文档所示，移动端属于不安全端，数据容易被篡改，所以不能以客户端返回结果作为用户支付的结果  
+
 > **(重要) 使用建议：```onSuccess```和```onFailed```方法可以不用重写，所有的结果均在```onComplete```中去进行服务器查询**  
 > 以下示例为kotlin。唯一区别在于java实例化Observer时，请在"xxObserver"前加上"Java"，例如：WxPayObserver，java使用"JavaWxPayObserver"
 >
-> JavaDemo
+> [JavaDemoActivity](https://github.com/limuyang2/FastPay/blob/master/app/src/main/java/top/limuyang2/livedatapay/JavaDemoActivity.java)
 
-##### 微信使用  
+#### 微信使用  
 ```kotlin
 // …………后台服务器返回的订单数据，填入下方
 val request = PayReq()
@@ -45,7 +53,7 @@ FastWxPay("wx7e16cf49c52635e2", this).pay(request, object : WxPayObserver {
     }
 })
 ```
-##### 支付宝使用 
+#### 支付宝使用 
 ```kotlin
 // …………后台服务器返回的订单数据，填入下方
 val orderInfo = "app_id=2015052600090779&biz………………………………"
@@ -67,7 +75,7 @@ FastAliPay(this).pay(orderInfo, object : AliPayObserver {
     }
 })
 ```
-##### 银联支付 
+#### 银联支付 
 ```kotlin
 // …………后台服务器返回的 银联tn 数据，填入下方
 val tn = "869278591167656016600"
