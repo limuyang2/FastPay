@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
 
             /**
              * 银联 测试账号
+             * TN流水号获取链接：http://101.231.204.84:8091/sim/getacptn
              * 招商银行借记卡:6226090000000048
              * 手机号:18100000000
              * 密码:111101
@@ -79,7 +80,7 @@ class MainActivity : AppCompatActivity() {
              * 姓名:张三
              */
             // …………后台服务器返回的 银联tn 数据，填入下方
-            val tn = "869278591167656016600"
+            val tn = "820967050875740247701"
             // UnionPayType.TEST 为银联测试环境；UnionPayType.RELEASE 为银联正式环境
             FastUnionPay(this).pay(UnionPayType.TEST, tn, object : UnionPayObserver {
                 override fun onSuccess() {
