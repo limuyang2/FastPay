@@ -1,8 +1,10 @@
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![](https://jitpack.io/v/limuyang2/FastPay.svg)](https://jitpack.io/#limuyang2/FastPay)
+[![](https://jitpack.io/v/limuyang2/FastPay.svg)](https://jitpack.io/#limuyang2/FastPay)  
+
+[RxJava版本](https://github.com/limuyang2/FastPayRx)
 
 # FastPay
-**（LiveData版本）**一个集成微信、支付宝、银联支付的小巧库，本库采用LiveData相应数据，具有LiveData的所有优点，例如生命周期的感知。  
+**（LiveData版本）**一个集成微信、支付宝、银联支付的小巧库，本库采用LiveData响应数据，具有LiveData的所有优点，例如生命周期的感知。  
 本库不提供任何逻辑，主要是提供库的集成，省去配置时间，以简单、轻量为主，不做过度封装。  
 三个支付平台库相互独立，可根据项目，单独使用，避免臃肿
 
