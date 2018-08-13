@@ -1,16 +1,39 @@
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-
+[![](https://jitpack.io/v/limuyang2/FastPay.svg)](https://jitpack.io/#limuyang2/FastPay)
 
 # FastPay
 **（LiveData版本）**一个集成微信、支付宝、银联支付的小巧库，本库采用LiveData相应数据，具有LiveData的所有优点，例如生命周期的感知。  
-本库不提供任何逻辑，主要是提供库的集成，省去配置时间，以简单、轻量为主，不做过度封装
+本库不提供任何逻辑，主要是提供库的集成，省去配置时间，以简单、轻量为主，不做过度封装。  
+三个支付平台库相互独立，可根据项目，单独使用，避免臃肿
 
 ## 获取 
-
+先在 build.gradle 的 repositories 添加仓库：  
+```gradle
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+在dependencies中添加：  
+> 最新版本[![](https://jitpack.io/v/limuyang2/FastPay.svg)](https://jitpack.io/#limuyang2/FastPay)
+```gradle
+dependencies {
+    //（根据需要，选择对应包导入）
+    //支付宝
+    implementation 'com.github.limuyang2.FastPay:alipaylibrary:0.1'
+    //微信
+    implementation 'com.github.limuyang2.FastPay:wechatpaylibrary:0.1'
+    //银联
+    implementation 'com.github.limuyang2.FastPay:unionpaylibrary:0.1'
+}
+```
 ## 使用 
-| 微信 | 银联 |
-| ---- | ---- |
-|![](https://github.com/limuyang2/FastPay/blob/master/pic/wxtips.png)|![](https://github.com/limuyang2/FastPay/blob/master/pic/uniontips.png)|
+微信  
+![](https://github.com/limuyang2/FastPay/blob/master/pic/wxtips.png)  
+银联  
+![](https://github.com/limuyang2/FastPay/blob/master/pic/uniontips.png)  
 * 根据以上官方文档所示，移动端属于不安全端，数据容易被篡改，所以不能以客户端返回结果作为用户支付的结果  
 
 > **(重要) 使用建议：```onSuccess```和```onFailed```方法可以不用重写，所有的结果均在```onComplete```中去进行服务器查询**  
@@ -54,6 +77,7 @@ FastWxPay("wx7e16cf49c52635e2", this).pay(request, object : WxPayObserver {
 })
 ```
 #### 支付宝使用 
+支付宝官方需要获取```android.permission.READ_PHONE_STATE```权限，建议动态获取给与
 ```kotlin
 // …………后台服务器返回的订单数据，填入下方
 val orderInfo = "app_id=2015052600090779&biz………………………………"
