@@ -7,4 +7,6 @@ import top.limuyang2.basepaylibrary.BasePayObserver
  * @date 2018/8/12
  * @class describe
  */
-interface AliPayObserver :BasePayObserver
+interface AliPayObserver : BasePayObserver
+
+abstract class JavaAliPayObserver : AliPayObserver

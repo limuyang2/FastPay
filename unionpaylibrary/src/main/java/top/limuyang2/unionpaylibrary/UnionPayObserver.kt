@@ -15,3 +15,5 @@ interface UnionPayObserver : BasePayObserver {
         FastUnionPay.unionPayLiveData = null
     }
 }
+
+abstract class JavaUnionPayObserver : UnionPayObserver

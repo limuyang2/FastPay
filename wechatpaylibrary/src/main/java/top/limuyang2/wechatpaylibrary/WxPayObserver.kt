@@ -17,3 +17,5 @@ interface WxPayObserver : BasePayObserver {
         FastWxPay.wxPayLiveData = null
     }
 }
+
+abstract class JavaWxPayObserver : WxPayObserver
