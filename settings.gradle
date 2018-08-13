@@ -1,0 +1,1 @@
+include ':app', ':wechatpaylibrary', ':basepaylibrary', ':alipaylibrary', ':unionpaylibrary'
