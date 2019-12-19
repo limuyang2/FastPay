@@ -30,9 +30,8 @@ class FastAliPay(private val activity: SupportActivity) {
             //支付结果处理
             val payResult = PayResult(payResultMap)
 
-            val resultStatus = payResult.resultStatus
             // 判断resultStatus 为9000则代表支付成功
-            when(resultStatus){
+            when(payResult.resultStatus){
                 "9000" ->{
                     aliPayLiveData.value = PayResource.success()
                 }

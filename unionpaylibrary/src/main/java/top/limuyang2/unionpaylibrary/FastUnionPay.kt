@@ -27,7 +27,7 @@ class FastUnionPay(private val activity: SupportActivity) {
     }
 
     companion object {
-        var unionPayLiveData: MutableLiveData<PayResource>? = null
+        internal var unionPayLiveData: MutableLiveData<PayResource>? = null
 
     }
 

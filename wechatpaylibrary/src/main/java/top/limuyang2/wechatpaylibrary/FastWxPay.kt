@@ -45,9 +45,9 @@ class FastWxPay(appId: String, private val activity: SupportActivity) {
     }
 
     companion object {
-        var wxPayLiveData: MutableLiveData<PayResource>? = null
+        internal var wxPayLiveData: MutableLiveData<PayResource>? = null
 
-        var mWXApi: IWXAPI? = null
+        internal var mWXApi: IWXAPI? = null
     }
 
 }
