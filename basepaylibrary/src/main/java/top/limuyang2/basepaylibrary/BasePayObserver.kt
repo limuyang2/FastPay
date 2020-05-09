@@ -1,7 +1,7 @@
 package top.limuyang2.basepaylibrary
 
-import android.arch.lifecycle.Observer
-import android.support.annotation.CallSuper
+import androidx.annotation.CallSuper
+import androidx.lifecycle.Observer
 
 /**
  * @author limuyang

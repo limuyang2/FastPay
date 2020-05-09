@@ -1,8 +1,8 @@
 package top.limuyang2.unionpaylibrary
 
-import android.arch.lifecycle.MutableLiveData
 import android.content.Intent
-import android.support.v4.app.SupportActivity
+import androidx.activity.ComponentActivity
+import androidx.lifecycle.MutableLiveData
 import top.limuyang2.basepaylibrary.PayResource
 
 
@@ -11,7 +11,7 @@ import top.limuyang2.basepaylibrary.PayResource
  * @date 2018/8/12
  * @class describe
  */
-class FastUnionPay(private val activity: SupportActivity) {
+class FastUnionPay(private val activity: ComponentActivity) {
 
     init {
         unionPayLiveData = MutableLiveData()

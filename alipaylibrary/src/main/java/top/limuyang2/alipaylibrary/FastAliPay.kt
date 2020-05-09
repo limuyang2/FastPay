@@ -1,11 +1,12 @@
 package top.limuyang2.alipaylibrary
 
-import android.arch.lifecycle.MutableLiveData
-import android.support.v4.app.SupportActivity
+import androidx.activity.ComponentActivity
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.lifecycleScope
 import com.alipay.sdk.app.PayTask
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.async
-import org.jetbrains.anko.coroutines.experimental.bg
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import top.limuyang2.basepaylibrary.PayResource
 
 
@@ -14,28 +15,28 @@ import top.limuyang2.basepaylibrary.PayResource
  * @date 2018/8/12
  * @class describe
  */
-class FastAliPay(private val activity: SupportActivity) {
+class FastAliPay(private val activity: ComponentActivity) {
 
     private val aliPayLiveData = MutableLiveData<PayResource>()
 
     fun pay(orderInfo: String, observer: AliPayObserver) {
-        async(UI) {
-            val payResultMap = bg {
+        activity.lifecycleScope.launch {
+            val payResultMap = withContext(Dispatchers.IO) {
                 // 构造PayTask 对象
                 val aliPay = PayTask(activity)
                 // 调用支付接口，获取支付结果
                 aliPay.payV2(orderInfo, true)
-            }.await()
+            }
 
             //支付结果处理
             val payResult = PayResult(payResultMap)
 
             // 判断resultStatus 为9000则代表支付成功
-            when(payResult.resultStatus){
-                "9000" ->{
+            when (payResult.resultStatus) {
+                "9000" -> {
                     aliPayLiveData.value = PayResource.success()
                 }
-                "6001" ->{
+                "6001" -> {
                     aliPayLiveData.value = PayResource.cancel()
                 }
                 "4000" -> {
@@ -54,7 +55,6 @@ class FastAliPay(private val activity: SupportActivity) {
                     aliPayLiveData.value = PayResource.failed(payResult.memo)
                 }
             }
-
 
         }
         aliPayLiveData.observe(activity, observer)

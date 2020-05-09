@@ -1,7 +1,7 @@
 package top.limuyang2.wechatpaylibrary
 
-import android.arch.lifecycle.MutableLiveData
-import android.support.v4.app.SupportActivity
+import androidx.activity.ComponentActivity
+import androidx.lifecycle.MutableLiveData
 import com.tencent.mm.opensdk.constants.Build
 import com.tencent.mm.opensdk.modelpay.PayReq
 import com.tencent.mm.opensdk.openapi.IWXAPI
@@ -14,7 +14,7 @@ import top.limuyang2.basepaylibrary.PayResource
  * @date 2018/8/12
  * @class describe
  */
-class FastWxPay(appId: String, private val activity: SupportActivity) {
+class FastWxPay(appId: String, private val activity: ComponentActivity) {
 
     init {
         wxPayLiveData = MutableLiveData()

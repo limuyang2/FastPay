@@ -2,8 +2,8 @@ package top.limuyang2.unionpaylibrary
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.unionpay.UPPayAssistEx
 import top.limuyang2.basepaylibrary.PayResource
 

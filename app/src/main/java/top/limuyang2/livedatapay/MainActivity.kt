@@ -1,8 +1,8 @@
 package top.limuyang2.livedatapay
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.tencent.mm.opensdk.modelpay.PayReq
 import kotlinx.android.synthetic.main.activity_main.*
 import top.limuyang2.alipaylibrary.AliPayObserver
